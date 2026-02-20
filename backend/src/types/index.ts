@@ -2,7 +2,7 @@ import { Request } from 'express';
 import { Document, Types } from 'mongoose';
 
 export interface IUser extends Document {
-  _id: Types.ObjectId | string;
+  _id: Types.ObjectId;
   name: string;
   email: string;
   password?: string;
@@ -28,7 +28,7 @@ export interface IAddress {
 }
 
 export interface IProduct extends Document {
-  _id: Types.ObjectId | string;
+  _id: Types.ObjectId;
   name: string;
   description: string;
   price: number;
@@ -62,7 +62,7 @@ export interface IStatusHistory {
 }
 
 export interface IOrder extends Document {
-  _id: Types.ObjectId | string;
+  _id: Types.ObjectId;
   user: string;
   orderNumber: string;
   items: ICartItem[];
@@ -88,7 +88,7 @@ export interface IOrder extends Document {
 }
 
 export interface ICategory extends Document {
-  _id: Types.ObjectId | string;
+  _id: Types.ObjectId;
   name: string;
   description: string;
   image: string;

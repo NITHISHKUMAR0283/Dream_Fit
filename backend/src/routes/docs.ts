@@ -4,6 +4,7 @@ import { swaggerSpec } from '../config/swagger';
 import { config } from '../config/env';
 
 const router = Router();
+const swagger = swaggerSpec as any;
 
 // Swagger UI options
 const swaggerOptions = {
@@ -32,12 +33,12 @@ const swaggerOptions = {
 
 // Serve Swagger UI
 router.use('/', swaggerUi.serve);
-router.get('/', swaggerUi.setup(swaggerSpec, swaggerOptions));
+router.get('/', swaggerUi.setup(swagger, swaggerOptions));
 
 // Serve raw OpenAPI spec as JSON
 router.get('/json', (req: Request, res: Response) => {
   res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
+  res.send(swagger);
 });
 
 // Serve OpenAPI spec as YAML
@@ -45,7 +46,7 @@ router.get('/yaml', (req: Request, res: Response) => {
   try {
     const yaml = require('js-yaml');
     res.setHeader('Content-Type', 'application/x-yaml');
-    res.send(yaml.dump(swaggerSpec));
+    res.send(yaml.dump(swagger));
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -61,19 +62,19 @@ router.get('/info', (req: Request, res: Response) => {
     success: true,
     message: 'API documentation information',
     data: {
-      title: swaggerSpec.info.title,
-      version: swaggerSpec.info.version,
-      description: swaggerSpec.info.description,
-      contact: swaggerSpec.info.contact,
-      license: swaggerSpec.info.license,
-      servers: swaggerSpec.servers,
+      title: swagger.info.title,
+      version: swagger.info.version,
+      description: swagger.info.description,
+      contact: swagger.info.contact,
+      license: swagger.info.license,
+      servers: swagger.servers,
       endpoints: {
         documentation: '/api/docs',
         openapi_json: '/api/docs/json',
         openapi_yaml: '/api/docs/yaml',
         postman_collection: '/api/docs/postman'
       },
-      tags: swaggerSpec.tags?.map((tag: any) => ({
+      tags: swagger.tags?.map((tag: any) => ({
         name: tag.name,
         description: tag.description
       })),
@@ -90,8 +91,8 @@ router.get('/postman', (req: Request, res: Response) => {
   const postmanCollection = {
     info: {
       name: 'DreamFit API',
-      description: swaggerSpec.info.description,
-      version: swaggerSpec.info.version,
+      description: swagger.info.description,
+      version: swagger.info.version,
       schema: 'https://schema.getpostman.com/json/collection/v2.1.0/collection.json'
     },
     auth: {

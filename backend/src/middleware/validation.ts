@@ -10,7 +10,7 @@ export const handleValidationErrors = (req: Request, res: Response, next: NextFu
     const formattedErrors = errors.array().map(error => ({
       field: error.param,
       message: error.msg,
-      value: error.value
+      value: 'value' in error ? (error as { value?: unknown }).value : undefined
     }));
 
     return res.status(400).json({
