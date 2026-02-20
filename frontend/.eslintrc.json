@@ -1,0 +1,11 @@
+{
+  "extends": ["react-app", "react-app/jest"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-redeclare": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/img-redundant-alt": "warn"
+  }
+}

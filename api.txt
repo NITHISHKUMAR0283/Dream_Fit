@@ -1,0 +1,21 @@
+client id 
+542887954184-u5kai5ua2gs0qcdl0qh24tksuo82hka4.apps.googleusercontent.com
+
+cloudinar
+ Cloud name: dbrpvdfpz
+
+ apikey
+
+173842461382688
+
+api secret 
+yrRPD9a0i5ylpXbZwhDOoRoe-_8
+
+mongodb
+
+username 
+asnrnithishjee_db_user
+password
+Dq6aUpz4qGDq4bi2
+our current IP address (38.224.232.114) has b
+mongodb+srv://<db_username>:<db_password>@dreamfit-cluster.wonstkw.mongodb.net/?retryWrites=true&w=majority&appName=DreamFit-Cluster

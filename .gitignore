@@ -1,0 +1,99 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Node modules
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Docker
+.docker/
+.dockerignore
+
+# OS files
+Thumbs.db
+.DS_Store
+*.pem
+
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Frontend specific
+frontend/build/
+frontend/.env.local
+frontend/.env.*.local
+
+# Backend specific
+backend/dist/
+backend/logs/
+backend/.env.local
+backend/.env.*.local
+
+# Database
+*.db
+*.sqlite
+mongodb/
+
+# Cache
+.cache/
+.eslintcache
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+
+# Windows reserved filenames
+nul
+CON
+PRN
+AUX
+LPT1
+LPT2
+LPT3
+COM1
+COM2
+COM3
+
+# IDE
+.vscode/settings.json
+.vscode/extensions.json
