@@ -1,8 +1,8 @@
 import { Request } from 'express';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export interface IUser extends Document {
-  _id: string;
+  _id: Types.ObjectId | string;
   name: string;
   email: string;
   password?: string;
@@ -28,7 +28,7 @@ export interface IAddress {
 }
 
 export interface IProduct extends Document {
-  _id: string;
+  _id: Types.ObjectId | string;
   name: string;
   description: string;
   price: number;
@@ -62,7 +62,7 @@ export interface IStatusHistory {
 }
 
 export interface IOrder extends Document {
-  _id: string;
+  _id: Types.ObjectId | string;
   user: string;
   orderNumber: string;
   items: ICartItem[];
@@ -88,7 +88,7 @@ export interface IOrder extends Document {
 }
 
 export interface ICategory extends Document {
-  _id: string;
+  _id: Types.ObjectId | string;
   name: string;
   description: string;
   image: string;
@@ -148,6 +148,6 @@ export interface CloudinaryUploadResult {
   placeholder: boolean;
   url: string;
   secure_url: string;
-  folder: string;
+  folder?: string;
   original_filename: string;
 }

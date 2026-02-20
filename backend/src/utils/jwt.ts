@@ -4,20 +4,21 @@ import { IUser, JWTPayload } from '../types';
 // Generate JWT token
 export const generateToken = (user: IUser): string => {
   const payload: JWTPayload = {
-    id: user._id,
+    id: user._id.toString(),
     email: user.email,
     isAdmin: user.isAdmin
   };
 
+  const expiresIn = (process.env.JWT_EXPIRE || '7d') as jwt.SignOptions['expiresIn'];
   return jwt.sign(payload, process.env.JWT_SECRET || 'dreamfit-secret-key', {
-    expiresIn: process.env.JWT_EXPIRE || '7d'
+    expiresIn
   });
 };
 
 // Generate refresh token (longer expiry)
 export const generateRefreshToken = (user: IUser): string => {
   const payload: JWTPayload = {
-    id: user._id,
+    id: user._id.toString(),
     email: user.email,
     isAdmin: user.isAdmin
   };

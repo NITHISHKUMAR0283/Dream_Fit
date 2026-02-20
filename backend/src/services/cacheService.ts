@@ -98,12 +98,11 @@ class RedisCacheService implements CacheInterface {
     }
 
     this.redis = new Redis(config.redis.url, {
-      retryDelayOnFailover: 100,
       maxRetriesPerRequest: 3,
       lazyConnect: true,
       keepAlive: 30000,
       connectTimeout: 10000,
-      commandTimeout: 5000
+      retryStrategy: (times) => Math.min(times * 100, 2000)
     });
 
     this.redis.on('connect', () => {
